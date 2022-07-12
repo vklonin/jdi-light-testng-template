@@ -19,6 +19,7 @@ public class FormTests implements TestsInit {
 
     @Test
     public void loginTest() {
+        System.out.println("debugging");
         shouldBeLoggedOut();
         userIcon.click();
         loginForm.loginAs(DEFAULT_USER);

@@ -22,6 +22,7 @@ public class JDIPerformanceTests implements TestsInit {
 
     @BeforeMethod
     public void openPerformancePage() {
+        System.out.println("debugging");
         shouldBeLoggedIn();
         performancePage.shouldBeOpened();
     }

@@ -16,6 +16,7 @@ public class States {
     }
     @Step
     public static void shouldBeLoggedIn() {
+        System.out.println("debugging2");
         onSite();
         if (!userName.isDisplayed())
             login();

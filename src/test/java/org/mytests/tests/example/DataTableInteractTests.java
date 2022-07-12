@@ -21,6 +21,7 @@ public class DataTableInteractTests implements TestsInit {
 
     @BeforeMethod
     public void before() {
+        System.out.println("debugging");
         shouldBeLoggedIn();
         usersPage.shouldBeOpened();
     }

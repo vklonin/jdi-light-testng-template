@@ -15,6 +15,7 @@ import static org.testng.Assert.assertEquals;
 public class MenuTests implements TestsInit {
     @BeforeMethod
     public void openPerformancePage() {
+        System.out.println("debugging");
         States.shouldBeLoggedIn();
         homePage.shouldBeOpened();
     }

@@ -30,6 +30,7 @@ public class DataTableTests implements TestsInit {
     private boolean firstTime = true;
     @BeforeMethod
     public void before() {
+        System.out.println("debugging");
         shouldBeLoggedIn();
         if (firstTime) {
             usersPage.open();
