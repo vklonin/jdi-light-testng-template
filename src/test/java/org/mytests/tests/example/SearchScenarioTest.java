@@ -1,6 +1,5 @@
 package org.mytests.tests.example;
 
-import com.epam.jdi.light.elements.common.UIElement;
 import org.mytests.tests.TestsInit;
 import org.mytests.tests.testng.TestNGListener;
 import org.testng.Assert;
@@ -22,7 +21,7 @@ public class SearchScenarioTest implements TestsInit {
         homePage.shouldBeOpened();
     }
 
-    @Test
+    @Test(invocationCount = 1)
     public void searchShirts() {
         searchField.setValue("shirt");
         searchButton.click();
@@ -43,7 +42,7 @@ public class SearchScenarioTest implements TestsInit {
         String cartItemSize = cartPage.cartContentList.get(1).find(".item__stock").getText();
         String cartItemPrice = cartPage.cartContentList.get(1).find(".item__price").getText();
 
-        Assert.assertTrue(cartItemName.contains(itemName),"item name isnt ok");
+        Assert.assertTrue(cartItemName.contains(itemName), "item name isnt ok");
         Assert.assertTrue(cartItemQty.contains(itemQty));
         Assert.assertTrue(cartItemSize.contains(itemSize));
         Assert.assertTrue(cartItemPrice.contains(itemPrice));

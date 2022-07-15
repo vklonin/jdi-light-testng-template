@@ -12,4 +12,6 @@ public class SiteStore {
     public static AccessoriesCategoryPage accessoriesCategoryPage;
     public static GoodPage goodPage;
 
+    public static LoginPage loginPage;
+
 }

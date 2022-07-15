@@ -1,10 +1,7 @@
 package org.mytests.tests.example;
 
-import com.epam.jdi.light.elements.common.UIElement;
 import org.mytests.tests.TestsInit;
 import org.mytests.tests.testng.TestNGListener;
-import org.mytests.uiobjects.example.site.pages.GoodPage;
-import org.mytests.uiobjects.example.site.pages.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -16,7 +13,7 @@ import java.util.List;
 
 import static org.mytests.tests.states.States.shouldBeOnSite;
 import static org.mytests.uiobjects.example.site.SiteStore.*;
-import static org.mytests.uiobjects.example.site.pages.HomePage.*;
+import static org.mytests.uiobjects.example.site.pages.HomePage.productTypesNavigationMenu;
 
 @Listeners(TestNGListener.class)
 public class WritingReviewForTheGoodTest implements TestsInit {
@@ -25,7 +22,7 @@ public class WritingReviewForTheGoodTest implements TestsInit {
         shouldBeOnSite();
         homePage.shouldBeOpened();
     }
-    @Test
+    @Test(invocationCount = 1)
     public void writingReviewForLowestPriceItem() {
         productTypesNavigationMenu.stream().filter(el-> el.getText().contains("Accessories".toUpperCase())).findFirst().orElse(null).click();
         accessoriesCategoryPage.shouldBeOpened();
@@ -39,7 +36,6 @@ public class WritingReviewForTheGoodTest implements TestsInit {
         Assert.assertTrue(detailsDescriptionText.contains(goodsName),"item name isnt ok");
         Assert.assertTrue(detailsDescriptionText.contains(goodsPrice),"item price isnt ok");
 
-        //GoodPage.scrollToBottom();
         goodPage.reviewButton.click();
         goodPage.writeReviewButton.click();
 
@@ -52,7 +48,7 @@ public class WritingReviewForTheGoodTest implements TestsInit {
 
         String alertTextToCheck = goodPage.driver().findElement(new By.ByCssSelector(".getAccAlert")).getText();
         String validationMessage = "Thank you for your review";
-        Assert.assertTrue(alertTextToCheck.contains(validationMessage),"message about a review is wrong.expected " + validationMessage + " acctual " + alertTextToCheck );
+        Assert.assertTrue(alertTextToCheck.contains(validationMessage),"message about a review is wrong.expected " + validationMessage + " actual " + alertTextToCheck );
     }
 
 }
