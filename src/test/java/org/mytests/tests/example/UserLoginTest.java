@@ -23,6 +23,7 @@ public class UserLoginTest implements TestsInit {
 
     @Test(invocationCount = 1)
     public void login() {
+        System.out.println("The thread ID for login test is "+ Thread.currentThread().getId());
         homePage.checkOpened();
         Assert.assertEquals(HomePage.getTitle(),homePage.title);
         homePage.registerOrLoginLink.click();

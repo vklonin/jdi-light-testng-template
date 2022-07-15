@@ -23,6 +23,7 @@ public class SearchScenarioTest implements TestsInit {
 
     @Test(invocationCount = 1)
     public void searchShirts() {
+        System.out.println("The thread ID for search test is "+ Thread.currentThread().getId());
         searchField.setValue("shirt");
         searchButton.click();
         searchPage.shouldBeOpened();

@@ -24,6 +24,7 @@ public class WritingReviewForTheGoodTest implements TestsInit {
     }
     @Test(invocationCount = 1)
     public void writingReviewForLowestPriceItem() {
+        System.out.println("The thread ID for review test is "+ Thread.currentThread().getId());
         productTypesNavigationMenu.stream().filter(el-> el.getText().contains("Accessories".toUpperCase())).findFirst().orElse(null).click();
         accessoriesCategoryPage.shouldBeOpened();
         accessoriesCategoryPage.sortDropdownUpperPagePart.select("Price (lowest first)");
