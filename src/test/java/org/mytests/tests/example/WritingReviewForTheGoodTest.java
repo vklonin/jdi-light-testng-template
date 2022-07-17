@@ -19,7 +19,10 @@ import static org.mytests.uiobjects.example.site.pages.HomePage.productTypesNavi
 public class WritingReviewForTheGoodTest implements TestsInit {
     @BeforeMethod
     public void before() {
-        shouldBeOnSite();
+        System.out.println("The thread ID for test is "+ Thread.currentThread().getId());
+        if (homePage != null && homePage.driver() != null) {
+            setUp();}
+        homePage.driver().get("https://apparel-uk.local:9002/ucstorefront/en");
         homePage.shouldBeOpened();
     }
     @Test(invocationCount = 1)

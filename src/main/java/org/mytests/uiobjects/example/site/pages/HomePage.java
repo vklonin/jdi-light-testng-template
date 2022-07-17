@@ -8,7 +8,6 @@ import com.epam.jdi.light.elements.pageobjects.annotations.locators.*;
 import com.epam.jdi.light.ui.html.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.common.Link;
 import com.epam.jdi.light.ui.html.elements.common.TextField;
-import org.mytests.uiobjects.example.site.sections.ProductItemCard;
 
 import java.util.List;
 

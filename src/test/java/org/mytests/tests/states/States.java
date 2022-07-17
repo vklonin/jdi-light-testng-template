@@ -13,6 +13,7 @@ public class States {
     }
     @Step
     public static void shouldBeOnSite() {
+        System.out.println("The thread ID for test is "+ Thread.currentThread().getId());
         onSite();
     }
 

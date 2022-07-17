@@ -17,7 +17,10 @@ public class UserLoginTest implements TestsInit {
 
     @BeforeMethod
     public void before() {
-        shouldBeOnSite();
+        System.out.println("The thread ID for test is "+ Thread.currentThread().getId());
+        if (homePage != null && homePage.driver() != null) {
+            setUp();}
+        homePage.driver().get("https://apparel-uk.local:9002/ucstorefront/en");
         homePage.shouldBeOpened();
     }
 

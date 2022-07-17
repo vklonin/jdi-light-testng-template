@@ -2,12 +2,12 @@ package org.mytests.tests.example;
 
 import org.mytests.tests.TestsInit;
 import org.mytests.tests.testng.TestNGListener;
+import org.mytests.uiobjects.example.site.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import static org.mytests.tests.states.States.shouldBeOnSite;
 import static org.mytests.uiobjects.example.site.SiteStore.*;
 import static org.mytests.uiobjects.example.site.pages.HomePage.searchButton;
 import static org.mytests.uiobjects.example.site.pages.HomePage.searchField;
@@ -17,7 +17,10 @@ public class SearchScenarioTest implements TestsInit {
 
     @BeforeMethod
     public void before() {
-        shouldBeOnSite();
+        System.out.println("The thread ID for test is "+ Thread.currentThread().getId());
+        if (homePage != null && homePage.driver() != null) {
+            setUp();}
+        homePage.driver().get("https://apparel-uk.local:9002/ucstorefront/en");
         homePage.shouldBeOpened();
     }
 
