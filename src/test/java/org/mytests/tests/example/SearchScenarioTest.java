@@ -18,7 +18,7 @@ public class SearchScenarioTest implements TestsInit {
     @BeforeMethod
     public void before() {
         System.out.println("The thread ID for test is "+ Thread.currentThread().getId());
-        if (homePage != null && homePage.driver() != null) {
+        if (homePage == null || homePage.driver() == null) {
             setUp();}
         homePage.driver().get("https://apparel-uk.local:9002/ucstorefront/en");
         homePage.shouldBeOpened();
